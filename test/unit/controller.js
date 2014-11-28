@@ -32,7 +32,7 @@ describe('Controller', function() {
 
     })
 
-    it('should have keys', function(done) {
+    it('should not have keys', function(done) {
 
       var dispatcher = new Dispatcher({
         controllerPath: path.join(__dirname, '../helpers/controllers/')
