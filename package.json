@@ -1,7 +1,7 @@
 {
   "name": "brazier",
   "version": "0.0.0",
-  "description": "Command line generator for Node.js APIs",
+  "description": "Generator for Node.js APIs",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
