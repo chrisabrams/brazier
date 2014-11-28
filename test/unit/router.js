@@ -151,8 +151,11 @@ describe('Router', function() {
       routes: routes
     })
 
+    sinon.spy(router, 'emit')
+
     router.on('route:matched', function(res) {
 
+      expect(router.emit).to.be.called.once
       expect(res).to.be.an('object')
       expect(res.controller).to.equal('generate')
       expect(res.action).to.equal('model')
