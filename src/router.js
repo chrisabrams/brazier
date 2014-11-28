@@ -16,7 +16,16 @@ class BrazierRouter {
     this.emit = EventEmitter.prototype.emit
     this.on   = EventEmitter.prototype.on
 
-    this.argv   = options.argv
+    this.argv = options.argv
+
+    var keys = Object.create(options.argv)
+
+    if(keys._) {
+      delete keys._
+    }
+
+    this.keys = keys
+
     this.routes = options.routes
     this.routesMatched = 0
 
@@ -58,7 +67,7 @@ class BrazierRouter {
       this.routesMatched++
     }
 
-    this.emit('route:matched', {controller: controller, action: action})
+    this.emit('route:matched', {controller: controller, action: action, keys: this.keys})
 
   }
 
