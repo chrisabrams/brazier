@@ -77,6 +77,36 @@ describe('Router', function() {
 
   })
 
+  it('should match blank command ``', function(done) {
+
+    var routes = [{
+      commands: [''],
+      dest: 'default#help'
+    }]
+
+    var argv = { _: ['']}
+
+    sinon.spy(Router.prototype, 'match')
+    sinon.spy(Router.prototype, 'start')
+
+    var router = new Router({
+      argv: argv,
+      routes: routes
+    })
+
+    router.start()
+
+    expect(router.start).to.have.been.called
+    expect(router.match).to.have.been.called
+    expect(router.routesMatched).to.equal(1)
+
+    Router.prototype.match.restore()
+    Router.prototype.start.restore()
+
+    done()
+
+  })
+
   it('should match command `generate`', function(done) {
 
     var routes = [{
