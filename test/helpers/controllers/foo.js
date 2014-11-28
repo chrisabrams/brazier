@@ -6,7 +6,9 @@ class FooController extends BrazierController {
 
   }
 
-  bar() {
+  bar(options) {
+
+    this.keys = options.keys
 
   }
 
