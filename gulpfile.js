@@ -10,7 +10,6 @@ gulp.task('mocha-cli', function() {
   return gulp
     .src([
       './test/helpers/cli/runner.js',
-      //'./lib/polyfills/**/*.js',
       './test/unit/**/*.js'
     ], {read: false})
     .pipe(mocha({reporter: 'spec'}))
