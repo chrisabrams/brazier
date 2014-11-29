@@ -5,20 +5,10 @@ var argv = require('minimist')(process.argv.slice(2)),
     chalk   = require('chalk'),
     path    = require('path'),
     pkg     = require('../package.json'),
-    name    = pkg.name,
-    version = pkg.version
+    routes  = require('./routes')
 
-var routes = [
-  {
-    commands: ['init'],
-    desc: 'Initialize an application',
-    dest: 'init#start'
-  },
-  {
-    commands: [''],
-    dest: 'default#help'
-  }
-]
+var name    = pkg.name,
+    version = pkg.version
 
 var prompt = new Brazier.Prompt()
 
