@@ -7,6 +7,7 @@ describe('Index', function() {
     expect(Brazier).to.be.an('object')
     expect(Brazier.Controller).to.be.a('function')
     expect(Brazier.Dispatcher).to.be.a('function')
+    expect(Brazier.Prompt).to.be.a('function')
     expect(Brazier.Router).to.be.a('function')
 
     done()
