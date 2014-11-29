@@ -19,7 +19,7 @@ class BrazierDispatcher {
 
     var Controller = this.getController(routeOptions)
     var controller = this.controller = new Controller()
-    var action     = this.action     = new controller[routeOptions.action]({keys: routeOptions.keys})
+    var action     = this.action     = new controller[routeOptions.action](routeOptions)
 
   }
 

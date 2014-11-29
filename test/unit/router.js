@@ -258,4 +258,32 @@ describe('Router', function() {
 
   })
 
+  it('should match exactly one route', function(done) {
+
+    var routes = [
+      {
+        commands: ['generate', 'model'],
+        dest: 'generate#model'
+      },
+      {
+        commands: ['generate'],
+        dest: 'generate#start'
+      }
+    ]
+
+    var argv = { _: ['generate', 'model']}
+
+    var router = new Router({
+      argv: argv,
+      routes: routes
+    })
+
+    router.start()
+
+    expect(router.routesMatched).to.equal(1)
+
+    done()
+
+  })
+
 })

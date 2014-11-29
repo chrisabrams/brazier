@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+var argv = require('minimist')(process.argv.slice(2)),
+    Brazier = require('../index'),
+    chalk   = require('chalk'),
+    path    = require('path'),
+    pkg     = require('../package.json'),
+    name    = pkg.name,
+    version = pkg.version
+
+var routes = [
+  {
+    commands: ['init'],
+    desc: 'Initialize an application',
+    dest: 'init#start'
+  },
+  {
+    commands: [''],
+    dest: 'default#help'
+  }
+]
+
+var prompt = new Brazier.Prompt()
+
+prompt.line(chalk.green('\nBrazier command-line generator version %s\n'), version)
+
+var router = new Brazier.Router({
+  appName: name,
+  argv: argv,
+  routes: routes
+})
+
+router.on('route:matched', function(data) {
+
+  var dispatcher = new Brazier.Dispatcher({
+    controllerPath: path.join(__dirname, './controllers/')
+  })
+
+  dispatcher.dispatch(data)
+
+})
+
+router.start()

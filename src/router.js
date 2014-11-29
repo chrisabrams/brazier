@@ -11,12 +11,29 @@ class BrazierRouter {
 
   constructor(options = {}) {
 
+    if(typeof options.argv != 'object') {
+      throw new Error('options.argv must be provided to router.')
+      return
+    }
+
     // TODO: Figure out why you have to do this instead of Object.assign/util.inherits
     EventEmitter.call(this)
     this.emit = EventEmitter.prototype.emit
     this.on   = EventEmitter.prototype.on
 
-    this.argv = options.argv
+    var argv = options.argv
+
+    // Delete the app name from the list of commands, if it is included
+    if(options.appName && argv._.indexOf(options.appName) > -1) {
+      argv._.splice(argv._.indexOf(options.appName), 1)
+    }
+
+    // For when there are no commands
+    if(arraysEqual(argv._, [])) {
+      argv._ = ['']
+    }
+
+    this.argv = argv
 
     var keys = Object.create(options.argv)
 
@@ -26,6 +43,7 @@ class BrazierRouter {
 
     this.keys = keys
 
+    this.appCommands = []
     this.routes = options.routes
     this.routesMatched = 0
 
@@ -62,12 +80,19 @@ class BrazierRouter {
         action     = tempDest[1]
 
     var isMatched = this.isMatch(options)
-
+    //console.log("isMatch?", "argv:", this.argv, "route:", options.commands, isMatched)
     if(isMatched) {
-      this.routesMatched++
-    }
 
-    this.emit('route:matched', {controller: controller, action: action, keys: this.keys})
+      this.routesMatched++
+
+      this.emit('route:matched', {
+        action      : action,
+        appCommands : this.appCommands,
+        controller  : controller,
+        keys        : this.keys
+      })
+
+    }
 
   }
 
@@ -75,6 +100,11 @@ class BrazierRouter {
     var _this = this
 
     this.routes.forEach( (route) => {
+
+      // Don't include default/catch-all route for now; maybe later
+      if(!arraysEqual(route.commands, [''])) {
+        _this.appCommands.push({commands: route.commands, desc: route.desc})
+      }
 
       _this.match(route)
 
