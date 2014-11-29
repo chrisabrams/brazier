@@ -21,6 +21,20 @@ class BootController extends Brazier.Controller {
       return
     }
 
+    this.options = options
+
+  }
+
+  capitaliseFirstLetter(string) {
+
+    return string.charAt(0).toUpperCase() + string.slice(1)
+
+  }
+
+  greeting() {
+
+    var options = this.options
+
     var pkg     = options.pkg,
         name    = this.capitaliseFirstLetter(pkg.name),
         version = pkg.version
@@ -28,6 +42,17 @@ class BootController extends Brazier.Controller {
     var prompt = new Brazier.Prompt()
 
     prompt.line(chalk.green('\n%s command-line generator version %s\n'), name, version)
+
+  }
+
+  up() {
+
+    var options = this.options
+
+    var pkg     = options.pkg,
+        name    = pkg.name
+
+    this.greeting()
 
     var router = new Brazier.Router({
       appName: name,
@@ -46,12 +71,6 @@ class BootController extends Brazier.Controller {
     })
 
     router.start()
-
-  }
-
-  capitaliseFirstLetter(string) {
-
-    return string.charAt(0).toUpperCase() + string.slice(1)
 
   }
 
