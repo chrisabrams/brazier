@@ -1,5 +1,5 @@
-var Controller = require('../../src/controller'),
-    Dispatcher = require('../../src/dispatcher'),
+var Controller = require('../../../src/controller'),
+    Dispatcher = require('../../../src/dispatcher'),
     path       = require('path')
 
 describe('Controller', function() {
@@ -19,7 +19,7 @@ describe('Controller', function() {
     it('should have keys', function(done) {
 
       var dispatcher = new Dispatcher({
-        controllerPath: path.join(__dirname, '../helpers/controllers/')
+        controllerPath: path.join(__dirname, '../../helpers/controllers/')
       })
 
       dispatcher.dispatch({controller: 'foo', action: 'bar', keys: {n: 'baz'}})
@@ -35,7 +35,7 @@ describe('Controller', function() {
     it('should not have keys', function(done) {
 
       var dispatcher = new Dispatcher({
-        controllerPath: path.join(__dirname, '../helpers/controllers/')
+        controllerPath: path.join(__dirname, '../../helpers/controllers/')
       })
 
       dispatcher.dispatch({controller: 'foo', action: 'bar'})

@@ -1,4 +1,4 @@
-var Dispatcher = require('../../src/dispatcher'),
+var Dispatcher = require('../../../src/dispatcher'),
     path       = require('path')
 
 describe('Dispatcher', function() {
@@ -6,7 +6,7 @@ describe('Dispatcher', function() {
   it('should initialize', function(done) {
 
     var dispatcher = new Dispatcher({
-      controllerPath: path.join(__dirname, '../helpers/controllers/')
+      controllerPath: path.join(__dirname, '../../helpers/controllers/')
     })
 
     expect(dispatcher).to.be.an('object')
@@ -21,7 +21,7 @@ describe('Dispatcher', function() {
   it('should get controller', function(done) {
 
     var dispatcher = new Dispatcher({
-      controllerPath: path.join(__dirname, '../helpers/controllers/')
+      controllerPath: path.join(__dirname, '../../helpers/controllers/')
     })
 
     var Controller = dispatcher.getController({controller: 'foo'})
@@ -35,7 +35,7 @@ describe('Dispatcher', function() {
   it('should dispatch', function(done) {
 
     var dispatcher = new Dispatcher({
-      controllerPath: path.join(__dirname, '../helpers/controllers/')
+      controllerPath: path.join(__dirname, '../../helpers/controllers/')
     })
 
     dispatcher.dispatch({controller: 'foo', action: 'bar'})

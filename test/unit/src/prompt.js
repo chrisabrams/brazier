@@ -1,4 +1,4 @@
-var Prompt = require('../../src/prompt')
+var Prompt = require('../../../src/prompt')
 
 describe('Prompt', function() {
 
