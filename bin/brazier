@@ -13,3 +13,5 @@ var boot = new BootController({
   pkg    : pkg,
   routes : routes
 })
+
+boot.up()
