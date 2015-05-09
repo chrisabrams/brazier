@@ -4,24 +4,24 @@ var Brazier = require('../index'),
 
 class BootController extends Brazier.Controller {
 
-  constructor(options = {}) {
+  initialize() {
 
-    if(typeof options.argv != 'object') {
+    super.initialize()
+
+    if(typeof this.options.argv != 'object') {
       throw new Error('options.argv is required for BootController.')
       return
     }
 
-    if(typeof options.pkg != 'object') {
+    if(typeof this.options.pkg != 'object') {
       throw new Error('options.pkg is required for BootController.')
       return
     }
 
-    if(typeof options.routes != 'object') {
+    if(typeof this.options.routes != 'object') {
       throw new Error('options.routes is required for BootController.')
       return
     }
-
-    this.options = options
 
   }
 

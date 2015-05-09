@@ -1,5 +1,5 @@
-require('6to5/register')
-require('6to5/polyfill')
+require('babel/register')
+require('babel/polyfill')
 
 var chai      = require('chai'),
     sinon     = require('sinon'),

@@ -12,7 +12,7 @@
   "author": "Chris Abrams <mail@chrisabrams.com>",
   "license": "MIT",
   "dependencies": {
-    "6to5": "^1.12.22",
+    "babel": "^5.2.17",
     "backbone": "^1.1.2",
     "lodash": "^2.4.1",
     "minimist": "^1.1.0",

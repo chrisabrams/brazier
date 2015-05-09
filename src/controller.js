@@ -1,7 +1,13 @@
 class BrazierController {
 
-  constructor() {
-    
+  constructor(options = {}) {
+    this.options = options
+
+    this.initialize()
+  }
+
+  initialize() {
+
   }
 
 }
