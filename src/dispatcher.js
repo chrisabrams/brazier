@@ -19,7 +19,7 @@ class BrazierDispatcher {
 
     var Controller = this.getController(routeOptions)
     var controller = this.controller = new Controller()
-    var action     = this.action     = new controller[routeOptions.action](routeOptions)
+    var action     = this.action     = controller[routeOptions.action](routeOptions)
 
   }
 
