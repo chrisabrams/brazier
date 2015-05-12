@@ -4,7 +4,7 @@ require('babel/register')
 require('babel/polyfill')
 
 var argv           = require('minimist')(process.argv.slice(2)),
-    BootController = require('./boot'),
+    BootController = require('./controllers/boot'),
     pkg            = require('../package.json'),
     routes         = require('./routes')
 

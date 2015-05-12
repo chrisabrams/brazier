@@ -1,4 +1,4 @@
-var Brazier = require('../index'),
+var Brazier = require('../../index'),
     chalk   = require('chalk'),
     path    = require('path')
 
@@ -63,7 +63,7 @@ class BootController extends Brazier.Controller {
     router.on('route:matched', function(data) {
 
       var dispatcher = new Brazier.Dispatcher({
-        controllerPath: (options.controllerPath || path.join(__dirname, './controllers/'))
+        controllerPath: (options.controllerPath || path.join(__dirname, './'))
       })
 
       dispatcher.dispatch(data)
