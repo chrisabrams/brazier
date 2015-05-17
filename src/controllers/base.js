@@ -29,4 +29,6 @@ class BrazierController {
 
 }
 
+BrazierController.prototype.matchRegex = /{{([^}}]+)}}/g
+
 module.exports = BrazierController

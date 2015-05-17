@@ -1,8 +1,13 @@
 module.exports = [
   {
+    commands: ['destroy'],
+    desc: 'Destroy a project',
+    dest: 'main#destroy'
+  },
+  {
     commands: ['init'],
     desc: 'Initialize an application',
-    dest: 'init#start'
+    dest: 'main#init'
   },
   {
     commands: [''],
