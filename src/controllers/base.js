@@ -1,4 +1,6 @@
-var fs = require('fs')
+var fs     = require('fs'),
+    Prompt = require('../prompt'),
+    sh     = require('execSync')
 
 class BrazierController {
 
@@ -9,6 +11,38 @@ class BrazierController {
   }
 
   initialize() {
+
+  }
+
+  getGitUserEmail() {
+
+    var email = sh.exec('git config user.email').stdout
+
+    if(email) {
+      email = email.replace(/\n/g, '')
+    }
+
+    else {
+      email = ''
+    }
+
+    return email
+
+  }
+
+  getGitUserName() {
+
+    var name = sh.exec('git config user.name').stdout
+
+    if(name) {
+      name = name.replace(/\n/g, '')
+    }
+
+    else {
+      name = ''
+    }
+
+    return name
 
   }
 
@@ -27,8 +61,67 @@ class BrazierController {
 
   }
 
+  prompt(options = {}) {
+
+    var prompt = new Prompt()
+
+    var defaultValue = options.default,
+        key          = options.key,
+        promptLabel  = options.label,
+        value        = defaultValue
+
+    var promptValue  = prompt.question(`${promptLabel}: (${defaultValue})`)
+
+    if(options.valueAsBoolean) {
+
+      if(promptValue == '') {
+
+        promptValue = defaultValue
+
+      }
+
+      switch(promptValue) {
+
+        case true:
+        case 'y':
+        case 'Y':
+
+          value = true
+
+          break;
+
+        default:
+
+          value = false
+
+      }
+
+    }
+
+    else {
+
+      if(this.isStringEmpty(promptValue) && !defaultValue) {
+
+        value = promptValue
+
+      }
+
+    }
+
+    this.store[key] = value
+
+    if(options.binFile) {
+
+      this.generateBinFile(this.store[key], this.cwd)
+
+    }
+
+  }
+
 }
 
+BrazierController.prototype.cwd        = process.cwd()
 BrazierController.prototype.matchRegex = /{{([^}}]+)}}/g
+BrazierController.prototype.store      = {}
 
 module.exports = BrazierController

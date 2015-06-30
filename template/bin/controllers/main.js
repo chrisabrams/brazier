@@ -24,7 +24,7 @@ class InitController extends Brazier.Controller {
     this.promptProperty({
       key: 'appName',
       default: cwd.split('/').pop(),
-      prompt: 'App Name'
+      label: 'App Name'
     })
 
     this.promptProperty({
