@@ -25,7 +25,7 @@ class InitController extends Brazier.Controller {
         dest: path.join(destCwd, './bin/controllers/boot.js')
       },
       {
-        src: path.join(projectCwd, './bin/controllers/default.js'),
+        src: path.join(projectCwd, './template/bin/controllers/default.js'),
         dest: path.join(destCwd, './bin/controllers/default.js')
       },
       {
