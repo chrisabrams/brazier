@@ -39,6 +39,10 @@ class InitController extends Brazier.Controller {
       {
         src: path.join(projectCwd, './template/package.json'),
         dest: path.join(destCwd, './package.json')
+      },
+      {
+        src: path.join(projectCwd, '.babelrc'),
+        dest: path.join(destCwd, '.babelrc')
       }
     ]
 

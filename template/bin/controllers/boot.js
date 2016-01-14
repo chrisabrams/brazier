@@ -1,4 +1,4 @@
-import Brazier from '../../index'
+import Brazier from 'brazier'
 import chalk   from 'chalk'
 import path    from 'path'
 
