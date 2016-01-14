@@ -1,9 +1,9 @@
 {
   "name": "brazier-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generator for Node.js command-line apps.",
   "bin": {
-    "brazier": "./bin/brazier"
+    "brazier-cli": "./bin/brazier"
   },
   "main": "index.js",
   "scripts": {
