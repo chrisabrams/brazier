@@ -5,8 +5,8 @@ import mkdirp     from 'mkdirp'
 import path       from 'path'
 import through2   from 'through2'
 
-var exec = require('child_process').exec,
-    sh   = require('child_process').execSync
+var exec     = require('child_process').exec,
+    execSync = require('child_process').execSync
 
 class InitController extends Brazier.Controller {
 
@@ -68,7 +68,7 @@ class InitController extends Brazier.Controller {
   */
   destroy() {
 
-    sh.run(`rm -rf ${this.cwd}/*`)
+    execSync(`rm -rf ${this.cwd}/*`)
 
   }
 
@@ -126,8 +126,8 @@ class InitController extends Brazier.Controller {
 
   link(cb) {
 
-    console.log("\nSetting up link..")
-
+    console.log("\nSetting up link and npm installing..")
+    // TODO: look into using spawn() here
     exec('npm link', (err, stdout, stderr) => {
 
       if(err) {

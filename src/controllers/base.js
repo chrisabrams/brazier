@@ -1,7 +1,7 @@
 import fs     from 'fs'
 import Prompt from '../prompt'
 
-var sh = require('child_process').execSync
+var execSync = require('child_process').execSync
 
 class BrazierController {
 
@@ -17,7 +17,7 @@ class BrazierController {
 
   getGitUserEmail() {
 
-    var email = sh.exec('git config user.email').stdout
+    var email = execSync('git config user.email').toString()
 
     if(email) {
       email = email.replace(/\n/g, '')
@@ -33,7 +33,7 @@ class BrazierController {
 
   getGitUserName() {
 
-    var name = sh.exec('git config user.name').stdout
+    var name = execSync('git config user.name').toString()
 
     if(name) {
       name = name.replace(/\n/g, '')
@@ -73,6 +73,12 @@ class BrazierController {
 
     var promptValue  = prompt.question(`${promptLabel}: (${defaultValue})`)
 
+    // Store the entered value
+    this.store[key]  = promptValue
+
+    // Possible scenarios that change the value stored
+
+    // Y/n prompts
     if(options.valueAsBoolean) {
 
       if(promptValue == '') {
@@ -97,19 +103,17 @@ class BrazierController {
 
       }
 
-    }
-
-    else {
-
-      if(this.isStringEmpty(promptValue) && !defaultValue) {
-
-        value = promptValue
-
-      }
+      this.store[key] = value
 
     }
 
-    this.store[key] = value
+    // Nothing returned, nothing default
+    if(this.isStringEmpty(promptValue) && !defaultValue) {
+
+      value = promptValue
+      this.store[key] = value
+
+    }
 
     if(options.binFile) {
 

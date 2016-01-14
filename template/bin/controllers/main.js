@@ -5,8 +5,8 @@ import mkdirp     from 'mkdirp'
 import path       from 'path'
 import through2   from 'through2'
 
-var exec = require('child_process').exec,
-    sh   = require('child_process').execSync
+var exec     = require('child_process').exec,
+    execSync = require('child_process').execSync
 
 class InitController extends Brazier.Controller {
 
@@ -17,7 +17,7 @@ class InitController extends Brazier.Controller {
 
     let cwd = process.cwd()
 
-    sh.run(`rm -rf ${cwd}/*`)
+    execSync(`rm -rf ${cwd}/*`)
 
   }
 
