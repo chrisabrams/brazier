@@ -1,4 +1,4 @@
-import Brazier    from 'brazier'
+import Brazier    from 'brazier-cli'
 import fs         from 'fs'
 import Handlebars from 'handlebars'
 import mkdirp     from 'mkdirp'

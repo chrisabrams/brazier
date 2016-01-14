@@ -1,4 +1,4 @@
-import Brazier from 'brazier'
+import Brazier from 'brazier-cli'
 import chalk   from 'chalk'
 import path    from 'path'
 

@@ -1,4 +1,4 @@
-import Brazier from 'brazier'
+import Brazier from 'brazier-cli'
 
 class DefaultController extends Brazier.Controller {
 
