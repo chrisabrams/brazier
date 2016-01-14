@@ -1,5 +1,5 @@
-var EventEmitter = require('events').EventEmitter,
-    _            = require('lodash')
+var EventEmitter = require('events').EventEmitter
+import _ from 'lodash'
 
 function arraysEqual(a1, a2) {
 
@@ -118,4 +118,4 @@ class BrazierRouter {
 Object.assign(BrazierRouter.prototype, EventEmitter)
 */
 
-module.exports = BrazierRouter
+export default BrazierRouter

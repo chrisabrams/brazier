@@ -1,5 +1,4 @@
-require('babel/register')
-require('babel/polyfill')
+import 'babel-core/register'
 
 var chai      = require('chai'),
     sinon     = require('sinon'),

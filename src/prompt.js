@@ -1,4 +1,4 @@
-var readline = require('readline-sync')
+import readline from 'readline-sync'
 
 class BrazierPrompt {
 
@@ -27,4 +27,4 @@ class BrazierPrompt {
 
 }
 
-module.exports = BrazierPrompt
+export default BrazierPrompt

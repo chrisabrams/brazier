@@ -1,5 +1,5 @@
-var Brazier        = require('../../../index'),
-    BootController = require('../../../bin/boot')
+import Brazier        from '../../../index'
+import BootController from '../../../bin/boot'
 
 describe('Boot', function() {
 

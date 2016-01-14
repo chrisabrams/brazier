@@ -1,5 +1,5 @@
-var Prompt = require('../../../src/prompt'),
-    readline = require('readline-sync')
+import Prompt   from '../../../src/prompt'
+import readline from 'readline-sync'
 
 describe('Prompt', function() {
 

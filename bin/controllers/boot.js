@@ -1,6 +1,6 @@
-var Brazier = require('../../index'),
-    chalk   = require('chalk'),
-    path    = require('path')
+import Brazier from '../../index'
+import chalk   from 'chalk'
+import path    from 'path'
 
 class BootController extends Brazier.Controller {
 
@@ -76,4 +76,4 @@ class BootController extends Brazier.Controller {
 
 }
 
-module.exports = BootController
+export default BootController

@@ -1,4 +1,4 @@
-var Brazier = require('../../../index')
+import Brazier from '../../../index'
 
 describe('Index', function() {
 

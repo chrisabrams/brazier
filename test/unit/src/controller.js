@@ -1,6 +1,6 @@
-var Controller = require('../../../src/controller'),
-    Dispatcher = require('../../../src/dispatcher'),
-    path       = require('path')
+import Controller from '../../../src/controller'
+import Dispatcher from '../../../src/dispatcher'
+import path       from 'path'
 
 describe('Controller', function() {
 

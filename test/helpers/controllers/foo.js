@@ -1,4 +1,4 @@
-var BrazierController = require('../../../src/controller')
+import BrazierController from '../../../src/controller'
 
 class FooController extends BrazierController {
 
@@ -10,4 +10,4 @@ class FooController extends BrazierController {
 
 }
 
-module.exports = FooController
+export default FooController

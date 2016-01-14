@@ -1,11 +1,12 @@
-var Brazier  = require('../../index'),
-    exec     = require('child_process').exec,
-    fs       = require('fs'),
-    Handlebars = require('handlebars'),
-    mkdirp   = require('mkdirp'),
-    path     = require('path'),
-    sh       = require('execSync'),
-    through2 = require('through2')
+import Brazier    from '../../index'
+import fs         from 'fs'
+import Handlebars from 'handlebars'
+import mkdirp     from 'mkdirp'
+import path       from 'path'
+import through2   from 'through2'
+
+var exec = require('child_process').exec,
+    sh   = require('child_process').execSync
 
 class InitController extends Brazier.Controller {
 
@@ -146,4 +147,4 @@ class InitController extends Brazier.Controller {
 
 }
 
-module.exports = InitController
+export default InitController

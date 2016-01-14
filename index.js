@@ -1,9 +1,15 @@
+import Controller from './src/controllers/base'
+import Dispatcher from './src/dispatcher'
+import Prompt     from './src/prompt'
+import Router     from './src/router'
+import util       from './src/util'
+
 var Brazier = {
-  Controller     : require('./src/controllers/base'),
-  Dispatcher     : require('./src/dispatcher'),
-  Prompt         : require('./src/prompt'),
-  Router         : require('./src/router'),
-  util           : require('./src/util')
+  Controller,
+  Dispatcher,
+  Prompt,
+  Router,
+  util
 }
 
-module.exports = Brazier
+export default Brazier

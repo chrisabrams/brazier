@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
-require('babel/register')
-require('babel/polyfill')
+require('babel-core/register')
 
 var argv           = require('minimist')(process.argv.slice(2)),
-    BootController = require('./controllers/boot'),
+    BootController = require('./controllers/boot').default,
     pkg            = require('../package.json'),
-    routes         = require('./routes')
+    routes         = require('./routes').default
 
 var boot = new BootController({
   argv   : argv,

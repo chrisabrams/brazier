@@ -1,5 +1,5 @@
-var Dispatcher = require('../../../src/dispatcher'),
-    path       = require('path')
+import Dispatcher from '../../../src/dispatcher'
+import path       from 'path'
 
 describe('Dispatcher', function() {
 

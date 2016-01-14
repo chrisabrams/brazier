@@ -1,6 +1,7 @@
-var fs     = require('fs'),
-    Prompt = require('../prompt'),
-    sh     = require('execSync')
+import fs     from 'fs'
+import Prompt from '../prompt'
+
+var sh = require('child_process').execSync
 
 class BrazierController {
 
@@ -124,4 +125,4 @@ BrazierController.prototype.cwd        = process.cwd()
 BrazierController.prototype.matchRegex = /{{([^}}]+)}}/g
 BrazierController.prototype.store      = {}
 
-module.exports = BrazierController
+export default BrazierController

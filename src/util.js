@@ -86,4 +86,4 @@ Handlebars.registerHelper('upperCase', (s) => {
 
 })
 
-module.exports = Util
+export default Util

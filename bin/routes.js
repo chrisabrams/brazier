@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     commands: ['destroy'],
     desc: 'Destroy a project',

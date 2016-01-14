@@ -1,4 +1,4 @@
-var path = require('path')
+import path from 'path'
 
 class BrazierDispatcher {
 
@@ -25,10 +25,10 @@ class BrazierDispatcher {
 
   getController(routeOptions) {
 
-    return require(path.join(this.controllerPath, routeOptions.controller))
+    return require(path.join(this.controllerPath, routeOptions.controller)).default
 
   }
 
 }
 
-module.exports = BrazierDispatcher
+export default BrazierDispatcher

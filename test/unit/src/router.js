@@ -1,4 +1,4 @@
-var Router = require('../../../src/router')
+import Router from '../../../src/router'
 
 describe('Router', function() {
 
