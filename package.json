@@ -1,12 +1,13 @@
 {
   "name": "brazier-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generator for Node.js command-line apps.",
   "bin": {
     "brazier-cli": "./bin/brazier"
   },
-  "main": "index.js",
+  "main": "brazier.dist.js",
   "scripts": {
+    "compile": "./node_modules/.bin/babel index.js -o brazier.dist.js",
     "test": "gulp test"
   },
   "author": "Chris Abrams <mail@chrisabrams.com>",
@@ -23,6 +24,7 @@
     "through2": "^2.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.4.0",
     "chai": "^3.4.1",
     "chalk": "^1.1.1",
     "glob": "^6.0.4",
