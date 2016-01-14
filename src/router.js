@@ -35,7 +35,7 @@ class BrazierRouter {
 
     this.argv = argv
 
-    var keys = Object.create(options.argv)
+    var keys = Object.assign({}, this.argv)
 
     if(keys._) {
       delete keys._
