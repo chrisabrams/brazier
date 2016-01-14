@@ -5,7 +5,7 @@
   "bin": {
     "brazier-cli": "./bin/brazier"
   },
-  "main": "brazier.dist.js",
+  "main": "index.js",
   "scripts": {
     "compile": "./node_modules/.bin/babel index.js -o brazier.dist.js",
     "test": "gulp test"
@@ -29,6 +29,7 @@
     "chalk": "^1.1.1",
     "glob": "^6.0.4",
     "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
     "gulp-concat": "^2.6.0",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.3.4",

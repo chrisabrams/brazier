@@ -1,9 +1,27 @@
 process.on('uncaughtException', console.log)
 
-var concat         = require('gulp-concat'),
+var babel          = require('gulp-babel'),
+    concat         = require('gulp-concat'),
     glob           = require('glob'),
     gulp           = require('gulp'),
     mocha          = require('gulp-mocha')
+
+gulp.task('b', function() {
+
+  return gulp
+    .src([
+      './index.js',
+      './src/**/*.js',
+      './bin/**/*.js'
+    ])
+    .pipe(babel({presets: [
+      "es2015",
+      "stage-0"
+    ]}))
+    .pipe(concat('brazier.dist.js'))
+    .pipe(gulp.dest(''))
+
+})
 
 gulp.task('mocha-cli', function() {
 
